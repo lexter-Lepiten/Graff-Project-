@@ -1,0 +1,121 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graff - Luxury Login</title>
+    
+    <link href="./css/style.css" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="container">
+        <span class="borderline"></span>
+        <div class="pops">
+        <div class="login-container">
+            <div class="logo-section">
+                <img class="icon" src="../0-start-here/image/logo2.png" alt="Logo ni">
+                <h1 class="logo">Graff</h1>
+                <p class="tagline">Luxury Jewelry Boutique</p>
+            </div>
+            
+            <form action="../landingpage/index.html" method="POST" class="login-form" id="loginForm">
+                <h2 class="welcome-text">Welcome Connoisseur</h2>
+                
+                <div id="error-message" class="error-message" style="display: none;">
+                    <i class="fa-solid fa-exclamation-circle"></i> Incorrect username or password.
+                </div>
+
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
+                    </div>
+                </div>
+            
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+            
+                <button type="submit" class="login-btn">
+                    <span>LOG IN</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            
+                <!-- Custom error message for invalid login credentials -->
+    
+                 </form>
+
+            <div class="decoration-line left"></div>
+            <div class="decoration-line right"></div>
+        </div>
+        </div>
+    </div>
+
+    <div class="loading-page">
+        <svg id="svg" src="../0-start-here/image/2323.svg" viewbox="0 0 512 512"></svg>
+    </div>
+    <div class="name-container">
+    <div class="logo-name">null</div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Check if username is "Lester" and password is "Gwapo"
+        if (username === 'Lester' && password === 'Gwapo') {
+            // If correct, allow the form to submit
+            window.location.href = "../landingpage/index.html"; // Redirect after successful login
+        } else {
+            // If incorrect, display an error message
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block';
+            errorMessage.classList.add('show');
+        }
+    });
+
+    // Password visibility toggle functionality
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const toggleIcon = this;
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        }
+    });
+    </script>
+
+</body>
+</html>

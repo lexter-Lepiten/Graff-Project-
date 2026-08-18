@@ -1,0 +1,296 @@
+ 
+/* Base Styles */
+:root {
+  --gold: #e5ce95;
+  --dark-teal: #001a19;
+  --emerald: #006666;
+  --black: #000;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--dark-teal);
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(229, 206, 149, 0.1);
+}
+
+.logo {
+  font-family: 'Italianno', cursive;
+  font-size: 54px;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(229, 206, 149, 0.2);
+}
+
+nav ul {
+  display: flex;
+  gap: 60px;
+  list-style: none;
+}
+
+nav a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--gold);
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 10px 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero h1 {
+  top: 0px;
+  font-size: 45px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.brand {
+  font-family: 'Italianno', cursive;
+  font-size: 72px;
+  margin-bottom: 0px;
+  text-shadow: 0 0 15px rgba(229, 206, 149, 0.3);
+}
+
+
+
+
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .carousel-slide {
+      flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 0 20px;
+  }
+  
+  header {
+      flex-direction: column;
+      gap: 20px;
+  }
+  
+  nav ul {
+      gap: 30px;
+  }
+  
+  .carousel-slide {
+      flex: 0 0 100%;
+  }
+  
+  .location-card {
+      width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+      font-size: 42px;
+  }
+  
+  nav ul {
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
+  .hero h1 {
+      font-size: 32px;
+  }
+  
+  .brand {
+      font-size: 56px;
+  }
+  
+  .tagline {
+      font-size: 20px;
+  }
+}
+
+
+/* Products grid - adjusted for viewport fit */
+
+.products-grid {
+  top: 0px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px 10px;
+  padding-top: 5;
+  height: calc(95vh - 120px); /* Subtracting header and title height */
+  animation: fadeIn 1s ease-out forwards;
+  /* Optional: delay the animation if you want to wait a bit */
+ 
+}
+
+.product-card {
+  border : #000000;
+  border:100px ;
+  top: 0px;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #fcd46ff6;
+  height: 100%;
+}
+
+.special-card {
+  grid-row: 1 / span 2;
+}
+
+.product-link {
+  height: 100%;
+  display: block;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.product-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #C4A962;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Hover effect */
+.product-link:hover .product-image {
+  transform: scale(1.02);
+}
+.image{
+  image-resolution: 100%;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+  .products-grid {
+      height: calc(100vh - 100px);
+      padding: 10px 20px;
+      gap: 10px;
+  }
+  
+  .product-title {
+      font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+body,html{
+  height: 100%;  /* Make sure the body takes up the entire height of the viewport */
+  overflow: hidden;  /* Disable scrolling */
+  }
+
+  .background span:nth-child(7) {
+    left: 60%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 6s;
+  }
+  .background span:nth-child(8) {
+    left: 40%;
+    width: 70px;
+    height: 70px;
+    animation-delay: 7s;
+  }
+  .background span:nth-child(9) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 8s;
+  }
+  .background span:nth-child(10) {
+    left: 90%;
+    width: 55px;
+    height: 55px;
+    animation-delay: 9s;
+  }
+  .background span:nth-child(11) {
+    left: 25%;
+    width: 75px;
+    height: 75px;
+    animation-delay: 10s;
+  }
+  .background span:nth-child(12) {
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 11s;
+  }
+
+  
