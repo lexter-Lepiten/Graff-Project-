@@ -162,8 +162,19 @@ nav a:hover::after {
   z-index: 10;
 }
 
-.carousel-button:hover {
+.carousel-button:hover:not(:disabled) {
   background: rgba(229, 206, 149, 0.2);
+}
+
+.carousel-button:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.carousel-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .carousel-dots {
